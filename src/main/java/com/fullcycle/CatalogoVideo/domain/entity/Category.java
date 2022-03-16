@@ -24,6 +24,17 @@ public class Category {
         this.setDescription(description);
     }
 
+    public Category(String name, String description, Boolean isActive) {
+        this.id = UUID.randomUUID();
+        this.setName(name);
+        this.setDescription(description);
+        if (isActive) {
+            this.active();
+        } else {
+            this.deactive();
+        }
+    }
+
     public UUID getId() {
         return this.id;
     }
