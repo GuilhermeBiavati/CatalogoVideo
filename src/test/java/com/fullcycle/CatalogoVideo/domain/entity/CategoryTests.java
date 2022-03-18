@@ -7,8 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.fullcycle.CatalogoVideo.domain.entity.Category;
-import com.fullcycle.CatalogoVideo.domain.exception.DomainException;
 import com.fullcycle.CatalogoVideo.domain.exception.NotBlankException;
 import com.fullcycle.CatalogoVideo.domain.exception.NotNullException;
 
@@ -17,8 +15,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-@ExtendWith(SpringExtension.class)
-@SpringBootTest
+// @ExtendWith(SpringExtension.class)
+// @SpringBootTest
 public class CategoryTests {
 
     @Test
