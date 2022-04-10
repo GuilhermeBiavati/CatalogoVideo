@@ -3,6 +3,7 @@ package com.fullcycle.CatalogoVideo.application.category;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.fullcycle.CatalogoVideo.application.usecase.category.common.CategoryOutputData;
 import com.fullcycle.CatalogoVideo.application.usecase.category.create.CreateCategoryInputData;
@@ -47,6 +48,7 @@ public class CreateCategoryUseCaseTests {
         repository.create(category);
 
         assertThat(actual.getName()).isEqualTo(category.getName());
+        assertTrue(actual.getIsActive());
     }
 
 }

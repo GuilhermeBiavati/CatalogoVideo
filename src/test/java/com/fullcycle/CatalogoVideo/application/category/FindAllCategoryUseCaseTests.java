@@ -6,6 +6,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -55,5 +56,21 @@ public class FindAllCategoryUseCaseTests {
         assertThat(categories).isNotNull().hasSize(5);
         verify(repository, times(2)).findAll();
         assertThat(actual).isNotNull().hasSize(5);
+    }
+
+    @Test
+    public void executeReturnsFindAllCategoryAndListSizeIsZero() {
+        List<Category> categories = new ArrayList<Category>();
+
+        when(repository.findAll()).thenReturn(categories);
+
+        List<CategoryOutputData> actual = useCase.execute();
+
+        repository.findAll();
+
+        assertThat(categories).isNotNull().hasSize(0);
+        assertThat(actual).isNotNull().hasSize(0);
+        verify(repository, times(2)).findAll();
+
     }
 }

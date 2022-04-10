@@ -2,11 +2,14 @@ package com.fullcycle.CatalogoVideo.application.category;
 
 import static org.mockito.Mockito.when;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import com.fullcycle.CatalogoVideo.application.exception.NotFoundException;
 import com.fullcycle.CatalogoVideo.application.usecase.category.common.CategoryOutputData;
 import com.fullcycle.CatalogoVideo.application.usecase.category.findAll.FindAllCategorieUseCase;
 import com.fullcycle.CatalogoVideo.application.usecase.category.findById.FindByIdCategoryUseCase;
@@ -50,5 +53,10 @@ public class FindByIdCategoryUseCaseTests {
 
         assertThat(category).isNotNull();
         assertThat(actual).isNotNull();
+    }
+
+    @Test
+    public void throwNotFoundExceptionWhenIdIsWrong() {
+        assertThrows(NotFoundException.class, () -> useCase.execute(UUID.randomUUID()));
     }
 }
